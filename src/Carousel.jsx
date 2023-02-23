@@ -6,32 +6,31 @@ class Carousel extends Component {
   };
 
   static defaultProps = {
-    images: [`http://pets-images.dev-apis.com/pets/none.jpg`],
+    images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
-  handleIndexClick = (e) => {
+  handleIndexClick = (event) => {
     this.setState({
-      active: +e.target.dataset.index,
+      active: +event.target.dataset.index,
     });
   };
 
   render() {
     const { active } = this.state;
     const { images } = this.props;
-
     return (
       <div className="carousel">
-        <img src={images[active]} alt="animal hero" />
+        <img src={images[active]} alt="animal" />
         <div className="carousel-smaller">
           {images.map((photo, index) => (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+            // eslint-disable-next-line
             <img
-              onClick={this.handleIndexClick}
-              data-index={index}
               key={photo}
               src={photo}
               className={index === active ? "active" : ""}
               alt="animal thumbnail"
+              onClick={this.handleIndexClick}
+              data-index={index}
             />
           ))}
         </div>

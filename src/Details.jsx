@@ -17,7 +17,7 @@ const Details = () => {
 
   if (results.isLoading) {
     return (
-      <div className="loading-pane">
+      <div className="flex justify-center">
         <h2 className="loader">🌀</h2>
       </div>
     );
